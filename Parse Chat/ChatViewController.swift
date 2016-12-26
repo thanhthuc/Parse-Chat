@@ -13,6 +13,7 @@ class ChatViewController: UIViewController {
 
     @IBOutlet weak var chatTextFeild: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    var textArr: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,27 @@ class ChatViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let user = PFUser.current()
+        if user == nil {
+            //re login
+            
+        } else {
+            //
+            let query = PFQuery(className:"MSG")
+            query.findObjectsInBackground { (objArr, error) in
+                
+                if let objArr = objArr {
+                    for obj in objArr {
+                        let text = obj["msg"] as! String
+                        self.textArr.append(text)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,25 +64,24 @@ class ChatViewController: UIViewController {
         
         let msgObject = PFObject(className: "MSG")
         msgObject["msg"] = chatTextFeild.text
+        let text = msgObject["msg"] as! String
+        textArr.append(text)
+        
+        
         msgObject.saveInBackground { (succeed, error) in
             if succeed {
-                self.showAlert(title: "succeed", message: "succeed")
+                //self.showAlert(title: "succeed", message: "succeed")
                 self.tableView.reloadData()
+                
+                let indexPath = IndexPath.init(row: self.textArr.count - 1, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                
             } else {
                 
                 self.showAlert(title: "error", message: (error?.localizedDescription)!)
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension ChatViewController: UITableViewDelegate {
@@ -72,13 +93,17 @@ extension ChatViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if textArr.count != 0 {
+          return (textArr.count)
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatRowTableViewCell
-        cell.messageText = chatTextFeild.text
-        
+        cell.messageText = textArr[indexPath.row]
+        let user = PFUser.current()
+        cell.userText = user?.username
         return cell
     }
 }

@@ -136,14 +136,14 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rSt-IM-HCO">
-                                <rect key="frame" x="0.0" y="60" width="320" height="508"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="LwD-is-1z4" customClass="ChatRowTableViewCell" customModule="Parse_Chat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LwD-is-1z4" id="mHd-jh-cmk">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-fy-cE1">
@@ -152,14 +152,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOW-Aw-kKN">
+                                                    <rect key="frame" x="269" y="11" width="37" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="hOW-Aw-kKN" firstAttribute="baseline" secondItem="6gb-fy-cE1" secondAttribute="baseline" id="NYI-fS-AtJ"/>
                                                 <constraint firstItem="6gb-fy-cE1" firstAttribute="centerY" secondItem="mHd-jh-cmk" secondAttribute="centerY" id="fva-ZG-ou3"/>
+                                                <constraint firstAttribute="trailing" secondItem="hOW-Aw-kKN" secondAttribute="trailing" constant="14" id="t1y-Ln-KGm"/>
                                                 <constraint firstItem="6gb-fy-cE1" firstAttribute="leading" secondItem="mHd-jh-cmk" secondAttribute="leadingMargin" constant="15" id="wSE-xe-b9x"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="msgLabel" destination="6gb-fy-cE1" id="SGt-Gc-lQW"/>
+                                            <outlet property="userLabel" destination="hOW-Aw-kKN" id="ZeO-AK-Ocf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -168,7 +177,7 @@
                         <color key="backgroundColor" red="0.19196510950000001" green="0.54596153579999995" blue="0.86205389259999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rSt-IM-HCO" firstAttribute="top" secondItem="v5s-Jj-8j3" secondAttribute="bottom" id="2Cb-qS-EDA"/>
-                            <constraint firstItem="bFM-PB-j59" firstAttribute="top" secondItem="rSt-IM-HCO" secondAttribute="bottom" id="4Np-vM-fRS"/>
+                            <constraint firstItem="bFM-PB-j59" firstAttribute="top" secondItem="rSt-IM-HCO" secondAttribute="bottom" constant="20" id="4Np-vM-fRS"/>
                             <constraint firstItem="v5s-Jj-8j3" firstAttribute="centerX" secondItem="pl1-zV-VrZ" secondAttribute="centerX" id="XUE-RI-yfy"/>
                             <constraint firstAttribute="trailing" secondItem="rSt-IM-HCO" secondAttribute="trailing" id="Z6V-Ai-5Yf"/>
                             <constraint firstItem="v5s-Jj-8j3" firstAttribute="top" secondItem="WiV-qo-fUz" secondAttribute="bottom" constant="10" id="fql-s5-0Ag"/>

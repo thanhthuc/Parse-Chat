@@ -10,12 +10,19 @@ import UIKit
 
 class ChatRowTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var msgLabel: UILabel!
     var messageText: String? {
         didSet {
             msgLabel.text = messageText
         }
     }
+    var userText: String? {
+        didSet {
+            userLabel.text = userText
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
