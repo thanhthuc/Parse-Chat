@@ -37,6 +37,10 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
     @IBAction func onLogin(_ sender: UIButton) {
         
         PFUser.logInWithUsername(inBackground: usernameTextField.text!, password: passwordTextField.text!) { (user, error) in
@@ -48,7 +52,6 @@ class LoginViewController: UIViewController {
                     self.presentChatViewController()
                 }
             }
-            
         }
     }
 

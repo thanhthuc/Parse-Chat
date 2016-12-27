@@ -14,9 +14,23 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatTextFeild: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var textArr: [String] = []
+    var userArr: [String] = []
+    
+    @IBOutlet weak var user1: UILabel!
+    @IBOutlet weak var user2: UILabel!
+    var userRecipient: String?
+    
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var usernameAdd: UITextField!
+    @IBOutlet weak var passwordAdd: UITextField!
+    @IBOutlet weak var heightAdd: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        user2.text = PFUser.current()?.username
+        stackView.alpha = 0
+        heightAdd.constant = 30
 
         // Do any additional setup after loading the view.
         tableView.delegate = self
@@ -44,6 +58,7 @@ class ChatViewController: UIViewController {
         
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,8 +92,27 @@ class ChatViewController: UIViewController {
                 self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
                 
             } else {
-                
                 self.showAlert(title: "error", message: (error?.localizedDescription)!)
+            }
+        }
+    }
+    
+    @IBAction func addUser(_ sender: UIButton) {
+        if sender.tag == 0 {
+            heightAdd.constant = 30
+            stackView.alpha = 0
+            UIView.animate(withDuration: 0.5) {
+                self.heightAdd.constant = 60
+                self.stackView.alpha = 1
+            }
+            sender.tag += 1
+        } else {
+            userRecipient = usernameAdd.text
+            user1.text = userRecipient
+            stackView.alpha = 1
+            UIView.animate(withDuration: 0.5) {
+                self.heightAdd.constant = 30
+                self.stackView.alpha = 0
             }
         }
     }
