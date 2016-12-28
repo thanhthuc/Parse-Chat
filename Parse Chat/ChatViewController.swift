@@ -19,6 +19,8 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var user1: UILabel!
     @IBOutlet weak var user2: UILabel!
     var userRecipient: String?
+    var chatMateArr: [PFUser] = []
+    
     
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var usernameAdd: UITextField!
@@ -28,9 +30,6 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        user2.text = PFUser.current()?.username
-        stackView.alpha = 0
-        heightAdd.constant = 30
 
         // Do any additional setup after loading the view.
         tableView.delegate = self
@@ -138,6 +137,11 @@ extension ChatViewController: UITableViewDataSource {
         cell.messageText = textArr[indexPath.row]
         let user = PFUser.current()
         cell.userText = user?.username
+        
+//        if <#condition#> {
+//            <#code#>
+//        }
+        
         return cell
     }
 }

@@ -14,6 +14,7 @@
 		541A92C01E078A5A00CA8844 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541A92BF1E078A5A00CA8844 /* Assets.xcassets */; };
 		541A92C31E078A5A00CA8844 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541A92C11E078A5A00CA8844 /* LaunchScreen.storyboard */; };
 		544A1E561E1240E300BC0DDC /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544A1E551E1240E300BC0DDC /* GroupTableViewCell.swift */; };
+		54A123CD1E1351AB00C6025C /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A123CC1E1351AB00C6025C /* GroupViewController.swift */; };
 		54A504F21E07E3820007A60D /* ChatRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A504F11E07E3820007A60D /* ChatRowTableViewCell.swift */; };
 		54DF951B1E0796AF00A00FB7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF951A1E0796AF00A00FB7 /* SignUpViewController.swift */; };
 		54DF951D1E07B89300A00FB7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF951C1E07B89300A00FB7 /* ChatViewController.swift */; };
@@ -29,6 +30,7 @@
 		541A92C21E078A5A00CA8844 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541A92C41E078A5A00CA8844 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		544A1E551E1240E300BC0DDC /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		54A123CC1E1351AB00C6025C /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		54A504F11E07E3820007A60D /* ChatRowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRowTableViewCell.swift; sourceTree = "<group>"; };
 		54DF951A1E0796AF00A00FB7 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		54DF951C1E07B89300A00FB7 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				541A92BF1E078A5A00CA8844 /* Assets.xcassets */,
 				541A92C11E078A5A00CA8844 /* LaunchScreen.storyboard */,
 				541A92C41E078A5A00CA8844 /* Info.plist */,
+				54A123CC1E1351AB00C6025C /* GroupViewController.swift */,
 			);
 			path = "Parse Chat";
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				544A1E561E1240E300BC0DDC /* GroupTableViewCell.swift in Sources */,
 				54A504F21E07E3820007A60D /* ChatRowTableViewCell.swift in Sources */,
 				541A92B91E078A5A00CA8844 /* AppDelegate.swift in Sources */,
+				54A123CD1E1351AB00C6025C /* GroupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

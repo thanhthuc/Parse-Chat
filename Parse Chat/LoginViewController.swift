@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var myID: String?
+    var loginSucceed = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,6 +25,8 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -30,16 +34,14 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func presentChatViewController() {
+    func presentGroupViewController() {
         let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let chatVC = sb.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        show(chatVC, sender: self)
-        
+        let groupVC = sb.instantiateViewController(withIdentifier: "GroupViewController") as! GroupViewController
+        groupVC.myID = self.myID
+        show(groupVC, sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
+    
     
     @IBAction func onLogin(_ sender: UIButton) {
         
@@ -47,9 +49,10 @@ class LoginViewController: UIViewController {
             if let error = error {
                 self.showAlert(title: "ERROR", message: error.localizedDescription)
             } else {
-                //self.showAlert(title: "SUCCEED", message: "")
                 DispatchQueue.main.async {
-                    self.presentChatViewController()
+                    self.myID = user?.username
+                    self.loginSucceed = true
+                    self.presentGroupViewController()
                 }
             }
         }
